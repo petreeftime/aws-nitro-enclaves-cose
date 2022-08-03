@@ -25,12 +25,11 @@ features = ["derive"]
 
 [dev-dependencies]
 hex = "0.4"
+tokio = { version = "1.20", features = ["macros"] }
 
 [features]
 default = ["key_openssl_pkey"]
 key_openssl_pkey = ["openssl"]
 key_tpm = ["tss-esapi", "openssl"]
-key_kms = ["aws-sdk-kms", "tokio"]
+key_kms = ["aws-sdk-kms", "tokio", "key_openssl_pkey"]
 
-[dev-dependencies]
-tokio = { version = "1.20", features = ["macros"] }
